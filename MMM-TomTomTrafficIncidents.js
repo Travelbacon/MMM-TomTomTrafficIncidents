@@ -31,7 +31,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 	start: function() {
 		Log.info("Starting module: " + this.name);
 
-        if (this.config.key === "") {
+		if (this.config.key === "") {
 			Log.error(this.name + ": key not set. Please read the README.md for details.");
 			return;
 		}
@@ -42,7 +42,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		wrapper.setAttribute("id", "map");
 		wrapper.setAttribute("class", "map");
 		wrapper.style.height = this.config.height;
-        wrapper.style.width = this.config.width;
+		wrapper.style.width = this.config.width;
 		
 		let script = document.createElement("script"); //Getscripts is not working in this module.
 		script.type = "text/javascript";
@@ -57,7 +57,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		
 		var self = this;	//Fixme: why?			
 				
-    	script.onload = function () {
+		script.onload = function () {
 			tt.setProductInfo('MagicMirror TomTom Traffic & Incidents', '1.0');
 			let map = new tt.map({
 				key: self.config.key,
