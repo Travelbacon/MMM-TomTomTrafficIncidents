@@ -4,8 +4,11 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		key: "",
 		height: "75vh",
 		width: "75vh",
-		traffic: 'relative',
-		refresh: 30000 //default setting from TomTom. <30.000 will be treated as 30.000.
+		traffic: "relative",
+		refresh: 30000, //default setting from TomTom. <30.000 will be treated as 30.000.
+		showIncidents: true,
+		showTraffic: true,
+		TTVersion: "5.39.0" //internal solution to quickly change version of TomTom API to a new version.
 	},
 	
 	start: function() {
@@ -18,27 +21,29 @@ Module.register("MMM-TomTomTrafficIncidents",{
 	}, 
 	
 	getDom: function() {
-		var wrapper = document.createElement("div");
+		let wrapper = document.createElement("div");
 		wrapper.setAttribute("id", "map");
 		wrapper.setAttribute("class", "map");
 		wrapper.style.height = this.config.height;
         wrapper.style.width = this.config.width;
+		
+		alert("Version :" + this.config.TTVersion);
 	
-		var style1 = document.createElement("link");
-		style1.type = "text/css";
-		style1.rel = "stylesheet";
-		style1.href = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.39.0/maps/maps.css";
-		document.head.appendChild(style1);
+		let mapstyle = document.createElement("link");
+		mapstyle.type = "text/css";
+		mapstyle.rel = "stylesheet";
+		mapstyle.href = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/" + this.config.TTVersion + "/maps/maps.css";
+		document.head.appendChild(mapstyle);
 		
-		var style2 = document.createElement("link");
-		style2.type = "text/css";
-		style2.rel = "stylesheet";
-		style2.href = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.39.0/maps/css-styles/traffic-incidents.css";
-		document.head.appendChild(style2);
+		let trafficstyle = document.createElement("link");
+		trafficstyle.type = "text/css";
+		trafficstyle.rel = "stylesheet";
+		trafficstyle.href = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/" + this.config.TTVersion + "/maps/css-styles/traffic-incidents.css";
+		document.head.appendChild(trafficstyle);
 		
-		var script = document.createElement("script");
+		let script = document.createElement("script");
 		script.type = "text/javascript";
-		script.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.39.0/maps/maps-web.min.js";
+		script.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/" + this.config.TTVersion + "/maps/maps-web.min.js";
 		script.setAttribute('defer','');
 		script.setAttribute('async','');
 		document.body.appendChild(script);
@@ -47,7 +52,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 				
     	script.onload = function () {
 			tt.setProductInfo('MagicMirror TomTomTrafficIncidents', '0.9');
-			var map = new tt.map({
+			let map = new tt.map({
 				key: self.config.key,
 				container: 'map',
 				center: [self.config.lng, self.config.lat],
@@ -58,17 +63,21 @@ Module.register("MMM-TomTomTrafficIncidents",{
 			});
 
 			map.on('load', function() {
-				map.addTier(new tt.TrafficFlowTilesTier({
-					key: self.config.key,
-					style: 'tomtom://raster/1/' + self.config.traffic,
-					refresh: self.config.refresh
-				}));
-				map.addTier(new tt.TrafficIncidentTier({
-					key: self.config.key,
-					incidentTiles: { style: 'tomtom://raster/1/s1'},
-					incidentDetails: {style: 'night'},  //night doesn't group the icons.
-					refresh: self.config.refresh
-				}))
+				if (self.config.showTraffic) {
+					map.addTier(new tt.TrafficFlowTilesTier({
+						key: self.config.key,
+						style: 'tomtom://raster/1/' + self.config.traffic,
+						refresh: self.config.refresh
+					}));
+				}
+				if (self.config.showIncidents) {
+					map.addTier(new tt.TrafficIncidentTier({
+						key: self.config.key,
+						incidentTiles: { style: 'tomtom://raster/1/s1'},
+						incidentDetails: {style: 'night'},  //night doesn't group the icons.
+						refresh: self.config.refresh
+					}))
+				}
 			})
 		}
 		return wrapper;
