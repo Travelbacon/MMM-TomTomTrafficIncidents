@@ -11,12 +11,13 @@ The following settings can be changed.
 
 ## Required settings.
 ### key from TomTom
-`key`: default `""`
+- `key`: default `""`
 In order to get the data from TomTom, a developpers key is required. A key can be obtained free, and without the need of a credit card from the developpers site. At [developer.tomtom.com](https://developer.tomtom.com) you can register yourself. When registration is a success, the site will guide you to create a key for you application.
 The key is free for 2.500 transictions on daily basis. When this limit has been reached an eror "HTTP 403 – Over the limit error" will be given. See refersh in Optional Settings for more information.
-`lng`: longitude default none
-`lat`: latitude default none
-Select your longitude and latitude from example[maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat o of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
+- `lng`: longitude default none.
+- `lat`: latitude default none.
+
+Select your longitude and latitude from example[maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
 
 ## Optional settings you want to change
 - `height`: heighy in CSS unit. Default `"75vh"`.
