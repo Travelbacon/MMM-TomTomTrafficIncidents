@@ -4,7 +4,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		requiresVersion: "2.8.0",  //Developped and tested with this version.
 		key: "",
 		height: "75vh",
-		width: "75vh",
+		width: "75vw",
 		traffic: "relative",
 		refresh: (15 * 60 * 1000), //Human readable for every 15 minutes.
 		showIncidents: true,
