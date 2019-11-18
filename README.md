@@ -16,8 +16,7 @@ In order to get the data from TomTom, a developpers key is required. A key can b
 The key is free for 2.500 transictions on daily basis. When this limit has been reached an eror "HTTP 403 – Over the limit error" will be given. See refersh in Optional Settings for more information.
 - `lng`: longitude default none.
 - `lat`: latitude default none.
-
-Select your longitude and latitude from example[maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
+> Select your longitude and latitude from example [maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
 
 ## Optional settings you want to change
 - `height`: heighy in CSS unit. Default `"75vh"`.
@@ -33,7 +32,7 @@ If no language code is set. The Module will get the language settings the browse
 Here you can select in wich way traffic should be displayed. There are three options.
 - `absolute`: roads will be marked green for high speed and red for low speed.
 ![absolute traffic speed](./TrafficAbsolute.png "Absolute")
-- `delay` : roads will be marked green or red when speed is slower than normal.
+- `delay`: roads will be marked green or red when speed is slower than normal.
 ![relative traffic flow](./TrafficRelative.png "Relative")
 - `relative-delay`:  only the roads where the speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
