@@ -13,10 +13,11 @@ The following settings can be changed.
 ### key from TomTom
 - `key`: default `""`
 In order to get the data from TomTom, a developpers key is required. A key can be obtained free, and without the need of a credit card from the developpers site. At [developer.tomtom.com](https://developer.tomtom.com) you can register yourself. When registration is a success, the site will guide you to create a key for you application.
-The key is free for 2.500 transictions on daily basis. When this limit has been reached an eror "HTTP 403 – Over the limit error" will be given. See refersh in Optional Settings for more information.
+The key is free for 2.500 transictions on daily basis. When this limit has been reached an eror "HTTP 403 – Over the limit error" will be given. See refresh in Optional Settings for more information.
 - `lng`: longitude default none.
 - `lat`: latitude default none.
-> Select your longitude and latitude from example [maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
+
+Select your longitude and latitude from example [maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
 
 ## Optional settings you want to change
 - `height`: heighy in CSS unit. Default `"75vh"`.
@@ -25,14 +26,14 @@ Here you can set the heigth and width of the map in any CSS unit style. Try, and
 - `zoom` : zoom level of the map. Default `11`.
 Select any number of 0 - 24
 - `lang` : [ISO 3166 land code](https://en.wikipedia.org/wiki/ISO_3166-1). Default `""`
-If no language code is set. The Module will get the language settings the browser of MagicMirror. That is commonly EN.
+If no language code is set. The Module will get the language settings the browser of MagicMirror. That is commonly English/EN.
 
 ## Optional Settings you might want to change
 - `traffic`: `"absolute"`/`"relative"`/`"relative-delay"` . Default `"relative"`
 Here you can select in wich way traffic should be displayed. There are three options.
-- `absolute`: roads will be marked green for high speed and red for low speed.
+- `absolute`: roads will be marked green for high speed and marked red for low speed.
 ![absolute traffic speed](./TrafficAbsolute.png "Absolute")
-- `delay`: roads will be marked green or red when speed is slower than normal.
+- `delay`: roads will be marked green for normal speed and marked red when speed is slower than normal.
 ![relative traffic flow](./TrafficRelative.png "Relative")
 - `relative-delay`:  only the roads where the speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
@@ -47,10 +48,10 @@ If you want to display traffic and/or the incidents on the map.
 
 ## Optional Settings you shouldn't care about
 - `remoteTTCSSJS`: `true`/`false` default is `false`
-The following settings is only needed when you wnat newer maps.css, traffic-incidents.css, and maps-web.min.js from TomTom site.
+The following settings is only needed when you want a newer maps.css, traffic-incidents.css, and maps-web.min.js from TomTom site when they're available.
 
 - `TTVersion`: version in string default is `"5.39.0"`
 Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this value van be changed to the most current version. It is advisable not to use the TomTom server unless your enforced to do so. By legal or something. When the the api.tomtom.com is not reachable, this part of the module will stall. It is at the moment not possible to fix this due technical reasons.
 
 # LICENSING from TomTom
-The files maps.css, traffic-incidents.css, and maps-web.min.js are lincesd by TomTom. Read the LICENSE.txt in the folder tomtom-international-web-sdk-maps for details.
+The files maps.css, traffic-incidents.css, and maps-web.min.js are lincesd by TomTom. Read the [LICENSE.txt](./tomtom-international-web-sdk-maps/LICENSE.txt) in the folder tomtom-international-web-sdk-maps for details.
