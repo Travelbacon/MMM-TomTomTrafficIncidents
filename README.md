@@ -29,16 +29,16 @@ Here you can set the height and width of the map in any [CSS unit style](https:/
 Zoom level can be between 0 - 24
 
 - `lang` : [ISO 3166 land code](https://en.wikipedia.org/wiki/ISO_3166-1). Default `""`
-If no language code is set, it will commonly get EN/English. This the language setting of your operatins system, not the setting of Module will get the language settings of `language` in config.js.
+If no language code is set, it will commonly get EN/English. This the language setting of your operatins system, not the setting of `language` in config.js.
 
 ## Optional Settings you might want to change
 - `traffic`: `"absolute"`/`"relative"`/`"relative-delay"` . Default `"relative"`
 Here you can select in which way traffic should be displayed. There are three options: absolute, delay, and relative delay.
---`absolute`: roads will be marked green for high speed and marked red for low speed traffic..
+- `absolute`: roads will be marked green for high speed and marked red for low speed traffic..
 ![absolute traffic speed](./TrafficAbsolute.png "Absolute")
--- `delay`: roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
+- `delay`: roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
 ![relative traffic flow](./TrafficRelative.png "Relative")
--- `relative-delay`:  only the roads where the traffic speed is slower than normal will be marked on the map.
+- `relative-delay`:  only the roads where the traffic speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
 
 - `refresh`: integer that is ms for a refresh of traffic and incident information. Default `(15 * 60 * 1000)`.
