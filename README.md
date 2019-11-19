@@ -1,7 +1,8 @@
+
 # MMM-TomTomTrafficIncidents
-Magic Mirror Module uses a map with traffic and incidents information from TomTom. You can select wich way the traffice should be displayd. Is it relative or absolute. Should a road with slow speed limit marked red, or only when there is a congestion going on? It also to shows the traffic incidents as icons on the map. Like accidents, road blocks, etc. etc..
-Big difference with Google Maps that is really free untill 2.500 request, no money will be charged when you go above this limit. And Google and Bing allways show absolute traffic in speed, not in delay.
-The module uses the public previev V5. TomTom expects to release V5 to the public within a few months. Don't worry, this module will keep on working when the release is there if you keep remoteTTCSSJS to it's default value of false. In this way module will use the local stored javascript and css files for TomTom.
+This Magic Mirror Module shows a map with traffic and incidents information from TomTom. You can select which way the traffic should be displayed. Should a road with slow speed limit marked red, or only when there is a congestion going on? It also to shows the traffic incidents as icons. Like accidents, road blocks, etc..
+Big difference with Google and Bing Maps is that it is really free for 2.500 request, no money will be charged when you go above this limit. No credit card credentials are needed. And TomTom has the option to display traffic in different ways.
+The module uses the public preview V5. TomTom expects to release V5 to the public within a few months. Don't worry that the module will stop working.  If you keep remoteTTCSSJS setting to it's default value of false. The module will use the local stored javascript and css files for TomTom and not the the files from TomTom site.
 
 ![TomTom Traffic and Incidents](./TrafficRelative.png "Example")
 
@@ -12,46 +13,49 @@ The following settings can be changed.
 ## Required settings.
 ### key from TomTom
 - `key`: default `""`
-In order to get the data from TomTom, a developpers key is required. A key can be obtained free, and without the need of a credit card from the developpers site. At [developer.tomtom.com](https://developer.tomtom.com) you can register yourself. When registration is a success, the site will guide you to create a key for you application.
-The key is free for 2.500 transictions on daily basis. When this limit has been reached an eror "HTTP 403 – Over the limit error" will be given. See refresh in Optional Settings for more information.
+In order to get the data from TomTom, a developers key is required. A key can be obtained free, and without the need of a credit card, from the developers site. At [developer.tomtom.com](https://developer.tomtom.com) you can register yourself. When your registration is a success, the site will guide you to create a key for you application.
+The key is free for 2.500 transactions on daily basis. When this limit has been reached, an error "HTTP 403 – Over the limit error" will be given. See refresh in Optional Settings for more information.
+
 - `lng`: longitude default none.
 - `lat`: latitude default none.
-
-Select your longitude and latitude from example [maps.ie](https://www.maps.ie/coordinates.html). Or use Google Maps to get the lang and lat of your desired location. If you keep these settings clear, TomTom will go to longitude 0 and latitude 0. That is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
+Select your longitude and latitude from [maps.ie](https://www.maps.ie/coordinates.html) for example. Or use Google Maps to get the longitude and latitude of your desired location. If you keep lng and lat settings empty, TomTom will go to longitude 0 and latitude 0. [That](https://mydrive.tomtom.com/en_us/#mode=search+viewport=0,0,5,0,-0+ver=3) is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
 
 ## Optional settings you want to change
-- `height`: heighy in CSS unit. Default `"75vh"`.
+- `height`: height in CSS unit. Default `"75vh"`.
 - `width`: width in CSS unit. Default `"75vw"`.
-Here you can set the heigth and width of the map in any CSS unit style. Try, and see what size suits te best for you.
+Here you can set the height and width of the map in any [CSS unit style](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). Try, and see what size suits the best for you.
+
 - `zoom` : zoom level of the map. Default `11`.
-Select any number of 0 - 24
+Zoom level can be between 0 - 24
+
 - `lang` : [ISO 3166 land code](https://en.wikipedia.org/wiki/ISO_3166-1). Default `""`
-If no language code is set. The Module will get the language settings the browser of MagicMirror. That is commonly English/EN.
+If no language code is set, it will commonly get EN/English. This the language setting of your operatins system, not the setting of Module will get the language settings of `language` in config.js.
 
 ## Optional Settings you might want to change
 - `traffic`: `"absolute"`/`"relative"`/`"relative-delay"` . Default `"relative"`
-Here you can select in wich way traffic should be displayed. There are three options.
-- `absolute`: roads will be marked green for high speed and marked red for low speed.
+Here you can select in which way traffic should be displayed. There are three options: absolute, delay, and relative delay.
+--`absolute`: roads will be marked green for high speed and marked red for low speed traffic..
 ![absolute traffic speed](./TrafficAbsolute.png "Absolute")
-- `delay`: roads will be marked green for normal speed and marked red when speed is slower than normal.
+-- `delay`: roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
 ![relative traffic flow](./TrafficRelative.png "Relative")
-- `relative-delay`:  only the roads where the speed is slower than normal will be marked on the map.
+-- `relative-delay`:  only the roads where the traffic speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
 
-- `refresh`: integer amount of ms for a refresh. Default `(15 * 60 * 1000)`.
-The settings are in ms. In this case I made a readable value of every  15 minutes. On TomTom you get 2.5000 transactions on daily basis for free. When you reach the limit, "HTTP 403 – Over the limit error" errors will occur. You will see them in the log of MagicMirror.
-The calculation is something I have to figure out in detail. From https://developer.tomtom.com/store/maps-api I read that each 15 requests for a map, traffic, and incidents counts as one request. The Map is not being refreshed, but traffic and accidents are. The question open is, is one road on request or the whole map one request? So far I read the documentation, each road or accident is one request.
+- `refresh`: integer that is ms for a refresh of traffic and incident information. Default `(15 * 60 * 1000)`.
+On TomTom you get 2.5000 transactions on daily basis for free. When you reach the limit, "HTTP 403 – Over the limit error" errors will occur. You will see them in the log of MagicMirror.
+The calculation is something I have to figure out in detail. From https://developer.tomtom.com/store/maps-api I read that each 15 requests for a map, traffic, and incidents counts as one request. The Map is not being refreshed, but traffic and accidents are. The question open is, is one road on request or the whole map one request? So far I read the documentation, each road or accident is one request. Meaning that once per 15 minutes leave a lot of room.
 
 - `showIncidents`:  `true`/`false` default is `true`
+Shows incidents like road blocks, incidents, narrowing, road construction etc. etc. on the map.
 - `showTraffic`: `true`/`false` default is `true`
-If you want to display traffic and/or the incidents on the map.
+If you want to display traffic.
 
 ## Optional Settings you shouldn't care about
 - `remoteTTCSSJS`: `true`/`false` default is `false`
-The following settings is only needed when you want a newer maps.css, traffic-incidents.css, and maps-web.min.js from TomTom site when they're available.
+The following settings is only needed when you the  maps.css, traffic-incidents.css, and maps-web.min.js from TomTom site. This could be a legal requirement.
 
 - `TTVersion`: version in string default is `"5.39.0"`
-Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this value van be changed to the most current version. It is advisable not to use the TomTom server unless your enforced to do so. By legal or something. When the the api.tomtom.com is not reachable, this part of the module will stall. It is at the moment not possible to fix this due technical reasons.
+Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this value can be changed to the most current version. It is advisable not to use the TomTom server. When the the api.tomtom.com is not reachable, this part of the module will stall. It is at the moment not possible to fix this due technical reasons.
 
 # LICENSING from TomTom
-The files maps.css, traffic-incidents.css, and maps-web.min.js are lincesd by TomTom. Read the [LICENSE.txt](./tomtom-international-web-sdk-maps/LICENSE.txt) in the folder tomtom-international-web-sdk-maps for details.
+The files maps.css, traffic-incidents.css, and maps-web.min.js are licensed by TomTom. Read the [LICENSE.txt](./tomtom-international-web-sdk-maps/LICENSE.txt) in the folder tomtom-international-web-sdk-maps for details
