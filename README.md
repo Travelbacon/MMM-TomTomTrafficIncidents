@@ -18,7 +18,7 @@ The key is free for 2.500 transactions on daily basis. When this limit has been 
 
 - `lng`: longitude default none.
 - `lat`: latitude default none.
-Select your longitude and latitude from [maps.ie](https://www.maps.ie/coordinates.html) for example. Or use Google Maps to get the longitude and latitude of your desired location. If you keep lng and lat settings empty, TomTom will go to longitude 0 and latitude 0. [That](https://mydrive.tomtom.com/en_us/#mode=search+viewport=0,0,5,0,-0+ver=3) is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
+Select your longitude and latitude. You can obtain from [maps.ie](https://www.maps.ie/coordinates.html) the longitude and latitude for places. Or use Google Maps to get the longitude and latitude of your desired location. You can find them after the @ sign in the address bar. If you keep lng and lat settings empty, TomTom will go to longitude 0 and latitude 0. [That](https://mydrive.tomtom.com/en_us/#mode=search+viewport=0,0,5,0,-0+ver=3) is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
 
 ## Optional settings you want to change
 - `height`: height in CSS unit. Default `"75vh"`.
@@ -36,14 +36,14 @@ If no language code is set, it will commonly get EN/English. This the language s
 Here you can select in which way traffic should be displayed. There are three options: absolute, delay, and relative delay.
 - `absolute`: roads will be marked green for high speed and marked red for low speed traffic..
 ![absolute traffic speed](./TrafficAbsolute.png "Absolute")
-- `delay`: roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
+- `relative`: roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
 ![relative traffic flow](./TrafficRelative.png "Relative")
 - `relative-delay`:  only the roads where the traffic speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
 
-- `refresh`: integer that is ms for a refresh of traffic and incident information. Default `(15 * 60 * 1000)`.
-On TomTom you get 2.5000 transactions on daily basis for free. When you reach the limit, "HTTP 403 – Over the limit error" errors will occur. You will see them in the log of MagicMirror.
-The calculation is something I have to figure out in detail. From https://developer.tomtom.com/store/maps-api I read that each 15 requests for a map, traffic, and incidents counts as one request. The Map is not being refreshed, but traffic and accidents are. The question open is, is one road on request or the whole map one request? So far I read the documentation, each road or accident is one request. Meaning that once per 15 minutes leave a lot of room.
+- `refresh`: integer that is the amount of ms for a refresh of traffic and incident information. Default `(15 * 60 * 1000)`. Equals 15 minuts.
+On TomTom you get 2.5000 transactions on daily basis for free. When you reach the limit, "HTTP 403 – Over the limit error" errors will be shown in the log of MagicMirror.
+The calculation of the amount of request is hard to guess. It depends on the amount of accidents and traffic. But 2.500 requests is hard to reach. 15 incidents count as one requests.
 
 - `showIncidents`:  `true`/`false` default is `true`
 Shows incidents like road blocks, incidents, narrowing, road construction etc. etc. on the map.
