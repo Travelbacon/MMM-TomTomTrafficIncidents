@@ -3,6 +3,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 	defaults: {
 		requiresVersion: "2.8.0",  //Developped and tested with this version.
 		key: "",
+		lang: config.language,
 		height: "75vh",
 		width: "75vw",
 		traffic: "relative",

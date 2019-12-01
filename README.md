@@ -8,6 +8,22 @@ The module uses the public preview V5. TomTom expects to release V5 to the publi
 
 
 # Configuring the Module
+To use this module, add the follwing configuration to your `config/config.js` file. In this examle I've choosen Vancouver BC.
+````javascript
+	modules: [
+		{	
+		module: "MMM-TomTomTrafficIncidents",
+		position: "top_center",
+		config: {
+			key: "yourkey",
+			lng: -123.1139529,
+			lat:  49.2608724,
+			zoom: 11,
+			height: "500px",
+			width: "800px"
+		}
+	]
+````
 The following settings can be changed.
 
 ## Required settings.
@@ -28,8 +44,7 @@ Here you can set the height and width of the map in any [CSS unit style](https:/
 - `zoom` : zoom level of the map. Default `11`.
 Zoom level can be between 0 - 24
 
-- `lang` : [ISO 3166 land code](https://en.wikipedia.org/wiki/ISO_3166-1). Default `""`
-If no language code is set, it will commonly get EN/English. This the language setting of your operatins system, not the setting of `language` in config.js.
+- `lang` : language specified in config.js under language.
 
 ## Optional Settings you might want to change
 - `traffic`: `"absolute"`/`"relative"`/`"relative-delay"` . Default `"relative"`
