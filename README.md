@@ -8,7 +8,7 @@ The module uses the public preview V5. TomTom expects to release V5 to the publi
 
 
 # Configuring the Module
-To use this module, add the follwing configuration to your `config/config.js` file. In this examle I've choosen Vancouver BC.
+To use this module, add the follwing configuration to your `config/config.js` file. In this examle I've chosen Vancouver BC.
 ````javascript
 	modules: [
 		{	
