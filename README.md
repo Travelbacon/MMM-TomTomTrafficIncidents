@@ -42,7 +42,7 @@ Select your longitude and latitude. You can obtain from [maps.ie](https://www.ma
 Here you can set the height and width of the map in any [CSS unit style](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). Try, and see what size suits the best for you.
 
 - `zoom` : zoom level of the map. Default `11`.
-Zoom level can be between 0 - 24
+Zoom level can be between 0 - 24. Higher numbers will zoom in while lower numbers will zoom out.
 
 - `lang` : language specified in config.js under language.
 
