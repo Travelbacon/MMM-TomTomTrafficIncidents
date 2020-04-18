@@ -11,7 +11,8 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		showIncidents: true,
 		showTraffic: true,
 		remoteTTCSSJS: false,
-		TTVersion: "5.39.0" //Internal solution to quickly change version of TomTom API to a new version.
+		zoom: 11,
+		TTVersion: "5.52.0" //Internal solution to quickly change version of TomTom API to a new version.
 	},
 		
 	getStyles: function() {
@@ -33,9 +34,14 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		Log.info("Starting module: " + this.name);
 
 		if (this.config.key === "") {
-			Log.error(this.name + ": key not set. Please read the README.md for details.");
+			Log.error(`${this.name}: key not set. Please read the README.md for details.`);
 			return;
 		}
+		if (this.config.remoteTTCSSJS === true) {
+			Log.info(`${this.name}: Using JS & CSS from https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/${this.config.TTVersion}`);
+		} else {
+			Log.info(`${this.name}: Using JS & CSS from local source.`};
+	}
 	}, 
 	
 	getDom: function() {
