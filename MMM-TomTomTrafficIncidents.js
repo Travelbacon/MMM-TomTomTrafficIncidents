@@ -40,8 +40,8 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		if (this.config.remoteTTCSSJS === true) {
 			Log.info(`${this.name}: Using JS & CSS from https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/${this.config.TTVersion}`);
 		} else {
-			Log.info(`${this.name}: Using JS & CSS from local source.`};
-	}
+			Log.info(`${this.name}: Using JS & CSS from local source.`);
+		}
 	}, 
 	
 	getDom: function() {
