@@ -96,8 +96,11 @@ Module.register("MMM-TomTomTrafficIncidents",{
 			});
 			
 			if( self.config.showMarker) {
-				let marker = new tt.Marker();
-				marker.setLngLat([self.config.mlng, self.config.mlat])
+				let marker = new tt.Marker({
+					width: self.config.mwidth,
+					height: self.config.mheight
+				});
+				marker.setLngLat([self.config.mlng, self.config.mlat]);
 				marker.addTo(map);
 			};
 		
