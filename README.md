@@ -59,6 +59,8 @@ Here you can select in which way traffic should be displayed. There are three op
 - `showMarker`: This will show a marker on the map. Ideal to locate your home. Default `false`.
 - `mlat`: Latitude of your marker.
 - `mlng`: Longitude of your marker.
+- `mwidth`: Width in pixels of the marker. String. Default: `"30"`.
+- `mheight`: Height in pixels of the marker. String. Default: `"36"`.
 
 - `refresh`: integer that is the amount of ms for a refresh of traffic and incident information. Default `(15 * 60 * 1000)`. Equals 15 minuts.
 On TomTom you get 2.5000 transactions on daily basis for free. When you reach the limit, "HTTP 403 – Over the limit error" errors will be shown in the log of MagicMirror.
