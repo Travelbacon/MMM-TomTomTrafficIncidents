@@ -10,6 +10,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		refresh: (15 * 60 * 1000), //Human readable for every 15 minutes.
 		showIncidents: true,
 		showTraffic: true,
+		showMarker: false,
 		remoteTTCSSJS: false,
 		zoom: 11,
 		TTVersion: "5.52.0" //Internal solution to quickly change version of TomTom API to a new version.
@@ -92,7 +93,14 @@ Module.register("MMM-TomTomTrafficIncidents",{
 						refresh: self.config.refresh
 					}))
 				}
-			})
+			});
+			
+			if( self.config.showMarker) {
+				let marker = new tt.Marker();
+				marker.setLngLat([self.config.mlng, self.config.mlat])
+				marker.addTo(map);
+			};
+		
 		}
 		return wrapper;
 	}
