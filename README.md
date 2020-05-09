@@ -28,33 +28,37 @@ The following settings can be changed.
 
 ## Required settings.
 ### key from TomTom
-- `key`: default `""`
+- `key`: Default `""`
 In order to get the data from TomTom, a developers key is required. A key can be obtained free, and without the need of a credit card, from the developers site. At [developer.tomtom.com](https://developer.tomtom.com) you can register yourself. When your registration is a success, the site will guide you to create a key for you application.
 The key is free for 2.500 transactions on daily basis. When this limit has been reached, an error "HTTP 403 – Over the limit error" will be given. See refresh in Optional Settings for more information.
 
-- `lng`: longitude default none.
-- `lat`: latitude default none.
+- `lng`: Longitude default none.
+- `lat`: Latitude default none.
 Select your longitude and latitude. You can obtain from [maps.ie](https://www.maps.ie/coordinates.html) the longitude and latitude for places. Or use Google Maps to get the longitude and latitude of your desired location. You can find them after the @ sign in the address bar. If you keep lng and lat settings empty, TomTom will go to longitude 0 and latitude 0. [That](https://mydrive.tomtom.com/en_us/#mode=search+viewport=0,0,5,0,-0+ver=3) is somewhere under Ghana in the Atlantic Ocean/Gulf of Guinea.
 
 ## Optional settings you want to change
-- `height`: height in CSS unit. Default `"75vh"`.
-- `width`: width in CSS unit. Default `"75vw"`.
+- `height`: Height in CSS unit. Default `"75vh"`.
+- `width`: Width in CSS unit. Default `"75vw"`.
 Here you can set the height and width of the map in any [CSS unit style](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). Try, and see what size suits the best for you.
 
-- `zoom` : zoom level of the map. Default `11`.
+- `zoom`: zoom level of the map. Default `11`.
 Zoom level can be between 0 - 24. Higher numbers will zoom in while lower numbers will zoom out.
 
-- `lang` : language specified in config.js under language.
+- `lang`: language specified in config.js under language.
 
 ## Optional Settings you might want to change
 - `traffic`: `"absolute"`/`"relative"`/`"relative-delay"` . Default `"relative"`
 Here you can select in which way traffic should be displayed. There are three options: absolute, delay, and relative delay.
-- `absolute`: roads will be marked green for high speed and marked red for low speed traffic..
+- `absolute`: Roads will be marked green for high speed and marked red for low speed traffic..
 ![absolute traffic speed](./TrafficAbsolute.png "Absolute")
-- `relative`: roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
+- `relative`: Roads will be marked green for normal traffic speed and marked red when traffic speed is slower than normal.
 ![relative traffic flow](./TrafficRelative.png "Relative")
-- `relative-delay`:  only the roads where the traffic speed is slower than normal will be marked on the map.
+- `relative-delay`: Only the roads where the traffic speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
+
+- `showMarker`: This will show a marker on the map. Ideal to locate your home. Default `false`.
+- `mlat`: Latitude of your marker.
+- `mlng`: Longitude of your marker.
 
 - `refresh`: integer that is the amount of ms for a refresh of traffic and incident information. Default `(15 * 60 * 1000)`. Equals 15 minuts.
 On TomTom you get 2.5000 transactions on daily basis for free. When you reach the limit, "HTTP 403 – Over the limit error" errors will be shown in the log of MagicMirror.
