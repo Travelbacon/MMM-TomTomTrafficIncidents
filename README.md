@@ -78,5 +78,8 @@ The following settings is only needed when you the  maps.css, traffic-incidents.
 - `TTVersion`: version in string default is `"5.39.0"`
 Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this value can be changed to the most current version. It is advisable not to use the TomTom server. When the the api.tomtom.com is not reachable, this part of the module will stall. It is at the moment not possible to fix this due technical reasons.
 
+# Troubelshooting
+If your code is not working. Pleae check if you can make a working example from https://developer.tomtom.com/maps-sdk-web-js/functional-examples with your key. Most errors are not in the code, but in the configuration. Sometimes the TomTom module gives strange errors that can't be derived from the root cause.
+
 # LICENSING from TomTom
 The files maps.css, traffic-incidents.css, and maps-web.min.js are licensed by TomTom. Read the [LICENSE.txt](./tomtom-international-web-sdk-maps/LICENSE.txt) in the folder tomtom-international-web-sdk-maps for details
