@@ -2,7 +2,7 @@
 # MMM-TomTomTrafficIncidents
 This Magic Mirror Module shows a map with traffic and incidents information from TomTom. You can select which way the traffic should be displayed. Should a road with slow speed limit marked red, or only when there is a congestion going on? It also to shows the traffic incidents as icons. Like accidents, road blocks, etc..
 Big difference with Google and Bing Maps is that it is really free for 2.500 request, no money will be charged when you go above this limit. No credit card credentials are needed. And TomTom has the option to display traffic in different ways.
-The module uses the public preview V5. TomTom expects to release V5 to the public within a few months. Don't worry that the module will stop working.  If you keep remoteTTCSSJS setting to it's default value of false. The module will use the local stored javascript and css files for TomTom and not the the files from TomTom site.
+The module uses [v5](https://developer.tomtom.com/maps-sdk-web-js) of the API. TomTom expects to release V5 to the public within a few months. Don't worry that the module will stop working.  If you keep remoteTTCSSJS setting to it's default value of false. The module will use the local stored javascript and css files for TomTom and not the the files from TomTom site.
 
 ![TomTom Traffic and Incidents](./TrafficRelative.png "Example")
 
@@ -80,6 +80,7 @@ Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this v
 
 # Troubelshooting
 If your code is not working. Pleae check if you can make a working example from https://developer.tomtom.com/maps-sdk-web-js/functional-examples with your key. Most errors are not in the code, but in the configuration. Sometimes the TomTom module gives strange errors that can't be derived from the root cause.
+When the module is not loading, check in the browser debugger what section Network writes. There you might find the 403 codes with response text like invalid key for example.
 
 # LICENSING from TomTom
 The files maps.css, traffic-incidents.css, and maps-web.min.js are licensed by TomTom. Read the [LICENSE.txt](./tomtom-international-web-sdk-maps/LICENSE.txt) in the folder tomtom-international-web-sdk-maps for details
