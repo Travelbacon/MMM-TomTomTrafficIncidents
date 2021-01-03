@@ -13,35 +13,28 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		showMarker: false,
 		remoteTTCSSJS: false,
 		zoom: 11,
-		TTVersion: "5.52.0" //Internal solution to quickly change version of TomTom API to a new version.
+		TTVersion: "6.1.2-public-preview.23" //Internal solution to quickly change version of TomTom API to a new version.
 	},
-		
+	
 	getStyles: function() {
 		//Not getting data from Tomtom, will stall the module. Give the user the choice for local.
 		if(this.config.remoteTTCSSJS) {
-			return [
-				"https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/" +  this.config.TTVersion + "/maps/maps.css",
-				"https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/" +  this.config.TTVersion + "/maps/css-styles/traffic-incidents.css"
-			]
+			return ["https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/" +  this.config.TTVersion + "/maps/maps.css"]
 		} else {
-			return [
-				this.file("tomtom-international-web-sdk-maps/maps.css"),
-				this.file("tomtom-international-web-sdk-maps/traffic-incidents.css")
-			]
+			return [this.file("tomtom-international-web-sdk-maps/maps.css")]
 		}
 	},
 	
 	start: function() {
 		Log.info("Starting module: " + this.name);
-
 		if (this.config.key === "") {
 			Log.error(`${this.name}: key not set. Please read the README.md for details.`);
 			return;
 		}
 		if (this.config.remoteTTCSSJS === true) {
-			Log.info(`${this.name}: Using JS & CSS from https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/${this.config.TTVersion}`);
+			Log.info(`${this.name}: Using JS from https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/${this.config.TTVersion}`);
 		} else {
-			Log.info(`${this.name}: Using JS & CSS from local source.`);
+			Log.info(`${this.name}: Using JS from local source.`);
 		}
 	}, 
 	
@@ -55,7 +48,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		let script = document.createElement("script"); //Getscripts is not working in this module.
 		script.type = "text/javascript";
 		if(this.config.remoteTTCSSJS) {
-			script.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/" + this.config.TTVersion + "/maps/maps-web.min.js";
+			script.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/" + this.config.TTVersion + "/maps/maps-web.min.js";
 		} else {
 			script.src = this.file("tomtom-international-web-sdk-maps/maps-web.min.js");
 		}
@@ -66,35 +59,29 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		var self = this;	//Fixme: why?			
 				
 		script.onload = function () {
-			tt.setProductInfo('MagicMirror TomTom Traffic & Incidents', '1.0');
+			tt.setProductInfo('MagicMirror TomTom Traffic & Incidents', '2.0 Alpha');
 			let map = new tt.map({
 				key: self.config.key,
 				container: 'map',
 				center: [self.config.lng, self.config.lat],
 				zoom:self.config.zoom,
-				style: 'tomtom://vector/1/basic-night',
 				language: self.config.lang,
-				interactive: false
-			});
+				interactive: true,
+				style: {     
+					map: 'basic_night',
+     					poi: 'poi_main',
+					trafficIncidents: 'incidents_day',
+					trafficFlow: 'flow_relative',
+					poi: 'poi_main'
+				},
 
-			map.on('load', function() {
-				if (self.config.showTraffic) {
-					map.addTier(new tt.TrafficFlowTilesTier({
-						key: self.config.key,
-						style: 'tomtom://vector/1/' + self.config.traffic,
-						refresh: self.config.refresh
-					}));
-				}
-				if (self.config.showIncidents) {
-					map.addTier(new tt.TrafficIncidentTier({
-						key: self.config.key,
-						incidentTiles: { style: 'tomtom://vector/1/s1'},
-						incidentDetails: {style: 'night'},  //night doesn't group the icons.
-						refresh: self.config.refresh
-					}))
-				}
+				stylesVisibility: {
+					trafficFlow: true, 
+					trafficIncidents: true,
+					poi: false
+				}			
 			});
-			
+	/*		
 			if( self.config.showMarker) {
 				let marker = new tt.Marker({
 					width: self.config.mwidth,
@@ -103,7 +90,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 				marker.setLngLat([self.config.mlng, self.config.mlat]);
 				marker.addTo(map);
 			};
-		
+	*/	
 		}
 		return wrapper;
 	}
