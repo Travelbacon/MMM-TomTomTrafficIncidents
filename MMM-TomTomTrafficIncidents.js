@@ -73,7 +73,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 					map: 'basic_night',
 					poi: 'poi_main',
 					trafficIncidents: 'incidents_day',
-					trafficFlow: 'flow_relative',
+					trafficFlow: 'flow_'+self.config.traffic,
 				},
 				stylesVisibility: {
 					trafficFlow: self.config.showTraffic, 
