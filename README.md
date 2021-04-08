@@ -55,6 +55,8 @@ Here you can select in which way traffic should be displayed. There are three op
 ![relative traffic flow](./TrafficRelative.png "Relative")
 - `relative-delay`: Only the roads where the traffic speed is slower than normal will be marked on the map.
 ![only relative delays](./TrafficRelativeDelay.png "Relative Delay")
+- `reduced-sensitivity`: T.B.D.
+
 
 - `showMarker`: This will show a marker on the map. Ideal to locate your home. Default `false`.
 - `mlat`: Latitude of your marker.
@@ -70,12 +72,14 @@ The calculation of the amount of request is hard to guess. It depends on the amo
 Shows incidents like road blocks, incidents, narrowing, road construction etc. etc. on the map.
 - `showTraffic`: `true`/`false` default is `true`
 If you want to display traffic.
+- `shoePOI`: `true`/`false` default is `false`
+If you want to display point of interests.
 
 ## Optional Settings you shouldn't care about
 - `remoteTTCSSJS`: `true`/`false` default is `false`
 The following settings is only needed when you the  maps.css, traffic-incidents.css, and maps-web.min.js from TomTom site. This could be a legal requirement.
 
-- `TTVersion`: version in string default is `"5.39.0"`
+- `TTVersion`: version in string default is `"6.12.0"`
 Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this value can be changed to the most current version. It is advisable not to use the TomTom server. When the the api.tomtom.com is not reachable, this part of the module will stall. It is at the moment not possible to fix this due technical reasons.
 
 # Troubelshooting
