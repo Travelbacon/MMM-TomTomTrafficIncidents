@@ -10,10 +10,11 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		refresh: (15 * 60 * 1000), //Human readable for every 15 minutes.
 		showIncidents: true,
 		showTraffic: true,
+		showPOI: false,
 		showMarker: false,
 		remoteTTCSSJS: true,
 		zoom: 11,
-		TTVersion: "6.1.2-public-preview.23" //Internal solution to quickly change version of TomTom API to a new version.
+		TTVersion: "6.12.0" //Internal solution to quickly change version of TomTom API to a new version.
 	},
 	
 	getStyles: function() {
@@ -40,7 +41,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 	
 	getDom: function() {
 		let wrapper = document.createElement("div");
-		wrapper.setAttribute("id", "map");
+		wrapper.setAttribute("id", "TomTomMap");
 		wrapper.setAttribute("class", "map");
 		wrapper.style.height = this.config.height;
 		wrapper.style.width = this.config.width;
@@ -60,28 +61,27 @@ Module.register("MMM-TomTomTrafficIncidents",{
 				
 		script.onload = function () {
 			tt.setProductInfo('MagicMirror TomTom Traffic & Incidents', '2.0 Alpha');
-			let map = new tt.map({
+			let map = tt.map({
 				key: self.config.key,
-				container: 'map',
+				container: 'TomTomMap',
 				center: [self.config.lng, self.config.lat],
 				zoom:self.config.zoom,
 				language: self.config.lang,
 				interactive: true,
+
 				style: {     
 					map: 'basic_night',
-     					poi: 'poi_main',
+					poi: 'poi_main',
 					trafficIncidents: 'incidents_day',
 					trafficFlow: 'flow_relative',
-					poi: 'poi_main'
 				},
-
 				stylesVisibility: {
-					trafficFlow: true, 
-					trafficIncidents: true,
-					poi: false
-				}			
+					trafficFlow: self.config.showTraffic, 
+					trafficIncidents: self.config.showIncidents,
+					poi: self.config.showPOI
+				}		
 			});
-	/*		
+			
 			if( self.config.showMarker) {
 				let marker = new tt.Marker({
 					width: self.config.mwidth,
@@ -90,7 +90,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 				marker.setLngLat([self.config.mlng, self.config.mlat]);
 				marker.addTo(map);
 			};
-	*/	
+		
 		}
 		return wrapper;
 	}
