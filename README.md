@@ -2,9 +2,8 @@
 # MMM-TomTomTrafficIncidents
 This Magic Mirror Module shows a map with traffic and incidents information from TomTom. You can select which way the traffic should be displayed. Should a road with slow speed limit marked red, or only when there is a congestion going on? It also to shows the traffic incidents as icons. Like accidents, road blocks, etc..
 Big difference with Google and Bing Maps is that it is really free for 2.500 request, no money will be charged when you go above this limit. No credit card credentials are needed. And TomTom has the option to display traffic in different ways.
-=======
-The module uses the public preview v6. It is unknown when v6 will be released.. Don't worry that the module will stop working.  If you keep remoteTTCSSJS setting to it's default value of false. The module will use the local stored javascript and css files for TomTom and not the the files from TomTom site.
->>>>>>> V6Dev
+
+The module uses the Version 6 of the maps SDK for Web (v6).
 
 ![TomTom Traffic and Incidents](./TrafficRelative.png "Example")
 
