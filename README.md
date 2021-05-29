@@ -85,7 +85,7 @@ Whenever TomTom releases a new version, and remoteTTCSSJS is set to true, this v
 
 # Troubelshooting
 If your code is not working. Pleae check if you can make a working example from https://developer.tomtom.com/maps-sdk-web-js/functional-examples with your key. Most errors are not in the code, but in the configuration. Sometimes the TomTom module gives strange errors that can't be derived from the root cause.
-When the module is not loading, check in the browser debugger what section Network writes. There you might find the 403 codes with response text like invalid key for example.
+When the module is not loading, check in the browser debugger what section Network writes. There you might find the 403 codes with response text like invalid key for example. There is working HTML file called tomtomv6.html that should work when you add your key in the source code.
 In case of black square, please see https://github.com/Travelbacon/MMM-TomTomTrafficIncidents/issues/4 and https://forum.magicmirror.builders/topic/13938/black-screen/7 for solution.
 
 # LICENSING from TomTom
