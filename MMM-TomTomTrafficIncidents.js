@@ -14,7 +14,7 @@ Module.register("MMM-TomTomTrafficIncidents",{
 		showMarker: false,
 		remoteTTCSSJS: true,
 		zoom: 11,
-		TTVersion: "6.12.0" //Internal solution to quickly change version of TomTom API to a new version.
+		TTVersion: "6.13.0" //Internal solution to quickly change version of TomTom API to a new version.
 	},
 	
 	getStyles: function() {
