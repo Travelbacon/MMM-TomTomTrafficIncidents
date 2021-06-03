@@ -5,32 +5,26 @@
 	<meta charset='UTF-8'>
 	<title>Magic Mirror</title>
 
-	<link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.7.0/maps/maps.css'>
-	<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.7.0/maps/maps-web.min.js"></script>
+	<link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css'>
+	<link rel='stylesheet' type='text/css' href='./tutorialTomTomsite.css'>
+	<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps-web.min.js"></script>
 </head>
 
 <body>
-
-
-	<div id='TTmap' class='tomtommap'></div>
+	<div id='TTmap' class='tomtommap' width='75vw' height='75vh'></div>
 	<script>
 		tt.setProductInfo('MagicMirror MM-TomTomStatic', '1.0.2');
 		var TTmap = tt.map({
-			key: 'yourkey',
+			key: '***REMOVED***',
 			container: 'TTmap',
 			center: [14,12],
 			zoom: 12,
 			interactive: true,
-
-			//style: 'https://api.tomtom.com/style/1/style/20.4.6-*?&map=basic_night&traffic_incidents=incidents_day&traffic_flow=flow_relative&poi=poi_main',
-
 			style: {     
-				//map: 'basic_night',
 				map: 'basic_main',
 				poi: 'poi_main',
 				trafficIncidents: 'incidents_day',
 				trafficFlow: 'flow_relative0',
-				//trafficFlow: 'flow_absolute',
 				poi: 'poi_main'
 			},
 
