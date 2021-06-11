@@ -22,7 +22,7 @@ To use this module, add the follwing configuration to your `config/config.js` fi
 			zoom: 11,
 			height: "500px",
 			width: "800px"
-		}
+		},
 	]
 ````
 The following settings can be changed.
