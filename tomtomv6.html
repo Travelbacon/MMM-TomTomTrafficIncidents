@@ -13,9 +13,9 @@
 <body>
 	<div id='TTmap' class='tomtommap'></div>
 	<script>
-		tt.setProductInfo('MagicMirror MM-TomTomStatic', '1.0.2');
+		tt.setProductInfo('MagicMirror MM-TomTomStatic', '1.0.3');
 		var TTmap = tt.map({
-			key: 'your key',
+			key: 'your key', //add here your key with 's around them. 
 			container: 'TTmap',
 			center: [14,12],
 			zoom: 12,
@@ -25,7 +25,6 @@
 				poi: 'poi_main',
 				trafficIncidents: 'incidents_day',
 				trafficFlow: 'flow_relative0',
-				poi: 'poi_main'
 			},
 
 			stylesVisibility: {
@@ -43,5 +42,4 @@
 			marker.addTo(TTmap);
 	</script> 
 </body>
-
 </html>
