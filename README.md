@@ -89,5 +89,9 @@ If your code is still not working. Pleae check if you can make a working example
 When the module is not loading, check in the browser debugger what section Network writes. There you might find the 403 codes with response text like invalid key for example. There is working HTML file called tomtomv6.html that should work when you add your key in the source code.
 In case of black square, please see https://github.com/Travelbacon/MMM-TomTomTrafficIncidents/issues/4 and https://forum.magicmirror.builders/topic/13938/black-screen/7 for solution.
 
+# Using Raspberry PI 3 (black screen issue)
+Wth the version raspbian Raspberry Pi OS (Legacy)](https://www.raspberrypi.com/news/new-old-functionality-with-raspberry-pi-os-legacy/) and the open GL fake KMS in the raspi-config (6 Advanced options / A2 GL driver / G2 GL Fake KMS) the PI should work.
+[See Issue #4](https://github.com/Travelbacon/MMM-TomTomTrafficIncidents/issues/4#issuecomment-1340614169) Thanks to Jeff for solving this issue.
+
 # LICENSING from TomTom
 The files maps.css, traffic-incidents.css, and maps-web.min.js are licensed by TomTom. Read the [LICENSE.txt](./tomtom-international-web-sdk-maps/LICENSE.txt) in the folder tomtom-international-web-sdk-maps for details
